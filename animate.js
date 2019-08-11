@@ -27,9 +27,8 @@ var getBestMove = function (game) {
     var depth = $('#search-depth').find(':selected').text();
 
     var d = new Date().getTime();
-    if (depth === "Monte Carlo Tree Search") {
-      console.log("MCTS");
-      var bestMove = minimax(3, game, true);
+    if (depth == "Monte Carlo TS") {
+      var bestMove = minimax(2, game, true);
     } else {
       var bestMove = minimax(parseInt(depth), game, true);
     }
