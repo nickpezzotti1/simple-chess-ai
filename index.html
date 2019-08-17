@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a32c94daf5.js"></script>
 </head>
 <body>
+<div class="header">
+  <a href="https://nickpezzotti1.github.io/simple-chess-ai/" class="logo">ChessAI</a>
+  <div class="header-right">
+    <a href="https://github.com/nickpezzotti1/simple-chess-ai"><i class="fab fa-github"></i></a>
+  </div>
+</div>
 <div id="board" class="board"></div>
 <div class="info">
     Search depth:
     <select id="search-depth">
         <option value="1">1</option>
         <option value="2">2</option>
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="4" selected >4</option>
         <option value="5">5</option>
         <option value="Monte Carlo TS">Monte Carlo TS</option>
     </select>
