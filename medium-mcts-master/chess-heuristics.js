@@ -1,4 +1,3 @@
-'use strict'
 
 var evaluateBoard = function (board) {
     var totalEvaluation = 0;
@@ -117,5 +116,3 @@ var getPieceValue = function (piece, x, y) {
     var absoluteValue = getAbsoluteValue(piece, piece.color === 'w', x ,y);
     return piece.color === 'w' ? absoluteValue : -absoluteValue;
 };
-
-if (typeof exports !== 'undefined') exports.evaluateBoard = evaluateBoard;

@@ -1,6 +1,3 @@
-'use strict'
-
-const MonteCarloNode = require('./monte-carlo-node.js')
 
 /**
  * Class representing the Monte Carlo search tree.
@@ -211,5 +208,3 @@ class MonteCarlo {
     return stats
   }
 }
-
-module.exports = MonteCarlo

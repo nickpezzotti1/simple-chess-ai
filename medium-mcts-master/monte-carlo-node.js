@@ -1,4 +1,3 @@
-'use strict'
 
 /**
  * Class representing a node in the search tree.
@@ -116,5 +115,3 @@ class MonteCarloNode {
   }
 
 }
-
-module.exports = MonteCarloNode

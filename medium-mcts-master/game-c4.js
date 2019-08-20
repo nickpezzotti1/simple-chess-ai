@@ -1,15 +1,15 @@
-'use strict'
 
-const State = require('./state-c4.js')
-const Chess = require("../lib/chessboardjs/js/chess.js")
-const ChessHeuristics = require("./chess-heuristics.js")
 /** Class representing the game. */
 class Game_C4 {
 
   /** Generate and return the initial game state. */
   start() {
-    var chess = Chess.Chess()
-    return new State([], chess, 1)
+    var chess = Chess()
+    return new State_C4([], chess, 1)
+  }
+
+  start(chess) {
+    return new State_C4([], chess, 1)
   }
 
   /** Return the current player's legal plays from given state. */
@@ -23,7 +23,7 @@ class Game_C4 {
     newHistory.push(play)
 
     // apply each move in play history to a fresh board
-    var newBoard = Chess.Chess();
+    var newBoard = new Chess();
     for (var i = 0; i < newHistory.length; i++) {
       newBoard.move(newHistory[i])
     }
@@ -31,18 +31,18 @@ class Game_C4 {
     // switch player turn
     let newPlayer = -state.player
 
-    return new State(newHistory, newBoard, newPlayer)
+    return new State_C4(newHistory, newBoard, newPlayer)
   }
 
   /** Return the winner of the game. */
   winner(state) {
     // TODO filler
-    const heur = ChessHeuristics.evaluateBoard(state.board.board());
+    const heur = evaluateBoard(state.board.board());
 
-    if (heur > 4) {
+    if (heur > 3) {
       return 1
     }
-    else if (heur < -4){
+    else if (heur < -3){
       return -1;
     } else {
       return null;
@@ -51,5 +51,3 @@ class Game_C4 {
   }
 
 }
-
-module.exports = Game_C4

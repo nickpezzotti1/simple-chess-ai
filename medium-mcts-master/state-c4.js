@@ -1,4 +1,3 @@
-'use strict'
 
 /** Class representing a game state. */
 class State_C4 {
@@ -18,5 +17,3 @@ class State_C4 {
 
   // Note: If hash uses board, multiple parents possible
 }
-
-module.exports = State_C4

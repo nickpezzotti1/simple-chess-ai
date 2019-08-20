@@ -18,8 +18,8 @@ var makeBestMove = function () {
 };
 
 var positionCount;
-var getBestMove = function (game) {
-    if (game.game_over()) {
+var getBestMove = function (board) {
+    if (board.game_over()) {
         alert('Game over');
     }
 
@@ -28,7 +28,23 @@ var getBestMove = function (game) {
 
     var d = new Date().getTime();
     if (depth == "Monte Carlo TS") {
-      var bestMove = minimax(2, game, true);
+      try {
+        let game = new Game_C4()
+        let mcts = new MonteCarlo(game)
+
+        let state = game.start(board)
+        let winner = game.winner(state)
+
+      	// From initial state, play games until end
+      	mcts.runSearch(state, 2)
+      	var bestMove = mcts.bestPlay(state, "robust")
+      } catch {
+        var bestMove = minimax(2, game, true);
+      }
+
+    	console.log("Best play " + bestMove)
+
+      //var bestMove = minimax(2, game, true);
     } else {
       var bestMove = minimax(parseInt(depth), game, true);
     }
